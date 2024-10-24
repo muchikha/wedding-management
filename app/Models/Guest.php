@@ -15,6 +15,6 @@ class Guest extends Model
         'email',
         'RSVP_status',
         'dietary_preferences',
-        'event_id', // Add this line to include event_id
+        'event_id',
     ];
 }
