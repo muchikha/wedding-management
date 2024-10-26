@@ -1,16 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GuestController; // Make sure to include the GuestController
+use App\Http\Controllers\GuestController;
+use App\Http\Controllers\VendorController; // Include the VendorController
 
 // Route to show the welcome page
 Route::get('/', function () {
     return view('welcome');
 });
 
-// Route to create a new guest for a specific event
+// Routes for managing guests
 Route::get('/guests/create/{eventId}', [GuestController::class, 'create']);
-
-// Route to store a new guest in the database
 Route::post('/guests', [GuestController::class, 'store']);
 
+// Resource route for managing vendors
+Route::resource('vendors', VendorController::class);
