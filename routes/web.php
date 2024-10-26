@@ -13,3 +13,4 @@ Route::get('/guests/create/{eventId}', [GuestController::class, 'create']);
 
 // Route to store a new guest in the database
 Route::post('/guests', [GuestController::class, 'store']);
+
