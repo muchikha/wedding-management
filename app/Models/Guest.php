@@ -9,7 +9,7 @@ class Guest extends Model
 {
     use HasFactory;
 
-    // Add the columns you want to allow for mass assignment
+    // Add the columns you want to allow for mass assignments
     protected $fillable = [
         'name',
         'email',
