@@ -42,6 +42,16 @@ class VendorController extends Controller
         return redirect()->route('vendors.index')->with('success', 'Vendor created successfully.');
     }
 
+    // Display the specified vendor
+    public function show($id)
+    {
+        // Find the vendor by its ID
+        $vendor = Vendor::findOrFail($id);
+
+        // Return the show view with the vendor data
+        return view('vendors.show', compact('vendor'));
+    }
+
     // Show the form for editing the specified vendor
     public function edit(Vendor $vendor)
     {
