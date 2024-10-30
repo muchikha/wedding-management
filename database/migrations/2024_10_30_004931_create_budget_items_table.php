@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('description');
             $table->decimal('amount', 10, 2);
-            $table->enum('status', ['pending', 'approved', 'paid']);
+            $table->enum('status', ['planned', 'spent']); // Ensure this matches your values
             $table->timestamps();
         });
     }

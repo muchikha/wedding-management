@@ -5,7 +5,7 @@
 @section('content')
     <div class="container">
         <h1>Budget Items</h1>
-        <a href="{{ route('budget.create') }}" class="btn btn-primary mb-3">Add New Budget Item</a>
+        <a href="{{ route('budget-items.create') }}" class="btn btn-primary mb-3">Add New Budget Item</a>
 
         @if(session('success'))
             <div class="alert alert-success">
@@ -29,8 +29,8 @@
                         <td>${{ number_format($item->amount, 2) }}</td>
                         <td>{{ ucfirst($item->status) }}</td>
                         <td>
-                            <a href="{{ route('budget.edit', $item->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                            <form action="{{ route('budget.destroy', $item->id) }}" method="POST" style="display:inline-block;">
+                            <a href="{{ route('budget-items.edit', $item->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                            <form action="{{ route('budget-items.destroy', $item->id) }}" method="POST" style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger">Delete</button>

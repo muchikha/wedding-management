@@ -16,7 +16,7 @@
             </div>
         @endif
 
-        <form action="{{ route('budget.store') }}" method="POST">
+        <form action="{{ route('budget-items.store') }}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="description">Description</label>
@@ -34,7 +34,7 @@
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Save Budget Item</button>
-            <a href="{{ route('budget.index') }}" class="btn btn-secondary">Cancel</a>
+            <a href="{{ route('budget-items.index') }}" class="btn btn-secondary">Cancel</a>
         </form>
     </div>
 @endsection

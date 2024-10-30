@@ -16,7 +16,7 @@
             </div>
         @endif
 
-        <form action="{{ route('budget.update', $budgetItem->id) }}" method="POST">
+        <form action="{{ route('budget-items.update', $budgetItem->id) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -35,7 +35,7 @@
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Update Budget Item</button>
-            <a href="{{ route('budget.index') }}" class="btn btn-secondary">Cancel</a>
+            <a href="{{ route('budget-items.index') }}" class="btn btn-secondary">Cancel</a>
         </form>
     </div>
 @endsection
