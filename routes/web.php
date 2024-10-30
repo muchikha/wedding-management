@@ -17,6 +17,6 @@ Route::post('/guests', [GuestController::class, 'store']);
 // Resource route for managing vendors
 Route::resource('vendors', VendorController::class);
 
-//Resource roue for managing budget
+//Resource route for managing budget
 Route::resource('budget-items', BudgetItemController::class);
 

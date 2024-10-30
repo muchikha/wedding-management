@@ -29,9 +29,11 @@ class BudgetItemController extends Controller
             'status' => 'required|in:planned,spent',
         ]);
 
-        BudgetItem::create($request->except('_token'));
+        // Use only the validated data for creation
+        BudgetItem::create($request->only(['description', 'amount', 'status']));
 
-        return redirect()->route('budget.index')->with('success', 'Budget item added successfully.');
+        // Redirect with the correct route name
+        return redirect()->route('budget-items.index')->with('success', 'Budget item added successfully.');
     }
 
     // Show the form for editing the specified budget item
@@ -49,9 +51,9 @@ class BudgetItemController extends Controller
             'status' => 'required|in:planned,spent',
         ]);
 
-        $budgetItem->update($request->all());
+        $budgetItem->update($request->only(['description', 'amount', 'status']));
 
-        return redirect()->route('budget.index')->with('success', 'Budget item updated successfully.');
+        return redirect()->route('budget-items.index')->with('success', 'Budget item updated successfully.');
     }
 
     // Remove the specified budget item from the database
@@ -59,6 +61,6 @@ class BudgetItemController extends Controller
     {
         $budgetItem->delete();
 
-        return redirect()->route('budget.index')->with('success', 'Budget item deleted successfully.');
+        return redirect()->route('budget-items.index')->with('success', 'Budget item deleted successfully.');
     }
 }
