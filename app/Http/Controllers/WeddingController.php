@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class WeddingController extends Controller
 {
     /**
-     * Display a listing of the weddings.
+     * Display a listing of weddings.
      */
     public function index()
     {
@@ -32,14 +32,14 @@ class WeddingController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'date' => 'required|date',
-            'time' => 'required',
+            'time' => 'required|date_format:H:i',
             'venue' => 'required|string|max:255',
-            'available_seats' => 'required|integer|min:1',
+            'available_seats' => 'required|integer|min:1'
         ]);
 
         Wedding::create($request->all());
 
-        return redirect()->route('weddings.index')->with('success', 'Wedding added successfully.');
+        return redirect()->route('weddings.index')->with('success', 'Wedding created successfully.');
     }
 
     /**
@@ -66,9 +66,9 @@ class WeddingController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'date' => 'required|date',
-            'time' => 'required',
+            'time' => 'required|date_format:H:i',
             'venue' => 'required|string|max:255',
-            'available_seats' => 'required|integer|min:1',
+            'available_seats' => 'required|integer|min:1'
         ]);
 
         $wedding->update($request->all());

@@ -10,10 +10,10 @@ class Wedding extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 
-        'date', 
-        'time', 
-        'venue', 
-        'available_seats'
+        'name',
+        'date',
+        'time',
+        'venue',
+        'available_seats',
     ];
 }
