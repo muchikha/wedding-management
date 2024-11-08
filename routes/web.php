@@ -6,6 +6,7 @@ use App\Http\Controllers\GuestController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\BudgetItemController;
 use App\Http\Controllers\WeddingController;
+use App\Http\Controllers\TestimonialController; // Include TestimonialController
 
 // Route to show the homepage with upcoming weddings and reservation option
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -22,3 +23,7 @@ Route::resource('budget-items', BudgetItemController::class);
 
 // Resource route for managing weddings
 Route::resource('weddings', WeddingController::class);
+
+// Routes for managing testimonials
+Route::get('/testimonials/create', [TestimonialController::class, 'create'])->name('testimonials.create');
+Route::post('/testimonials', [TestimonialController::class, 'store'])->name('testimonials.store');

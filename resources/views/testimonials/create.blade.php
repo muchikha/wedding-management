@@ -1,36 +1,36 @@
+<!-- resources/views/testimonials/create.blade.php -->
+
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h1 class="text-3xl font-semibold text-center mb-8">Leave a Testimonial</h1>
+    <div class="container">
+        <h1 class="text-2xl font-bold mb-4">Submit Your Testimonial</h1>
 
-    <!-- Display Success or Error Messages -->
-    @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
+        @if(session('success'))
+            <div class="alert alert-success mb-4">
+                {{ session('success') }}
+            </div>
+        @endif
 
-    @if($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+        <form action="{{ route('testimonials.store') }}" method="POST">
+            @csrf
+            <div class="form-group mb-4">
+                <label for="name" class="font-semibold">Your Name</label>
+                <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required>
+                @error('name')
+                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                @enderror
+            </div>
 
-    <!-- Testimonial Form -->
-    <form action="{{ route('testimonials.store') }}" method="POST">
-        @csrf
-        <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" name="name" id="name" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="message">Your Testimonial</label>
-            <textarea name="message" id="message" class="form-control" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit Testimonial</button>
-    </form>
-</div>
+            <div class="form-group mb-4">
+                <label for="message" class="font-semibold">Your Message</label>
+                <textarea id="message" name="message" class="form-control @error('message') is-invalid @enderror" required>{{ old('message') }}</textarea>
+                @error('message')
+                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit Testimonial</button>
+        </form>
+    </div>
 @endsection
