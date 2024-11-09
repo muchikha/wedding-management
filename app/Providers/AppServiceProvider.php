@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Wedding;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Explicit route model binding for the 'wedding' parameter
+        Route::model('wedding', Wedding::class);
     }
 }

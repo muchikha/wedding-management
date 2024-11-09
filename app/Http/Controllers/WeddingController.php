@@ -13,7 +13,7 @@ class WeddingController extends Controller
     public function index()
     {
         $weddings = Wedding::all();
-        return view('weddings.index', compact('weddings'));
+        return view('home', compact('weddings'));
     }
 
     /**

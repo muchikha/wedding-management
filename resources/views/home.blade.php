@@ -17,10 +17,11 @@
     <h2 class="text-3xl font-semibold text-center mb-8">Upcoming Weddings</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         @foreach($weddings as $wedding)
+        @dd($wedding)
             <div class="bg-white shadow-md p-6 rounded-lg">
                 <h3 class="text-xl font-bold">{{ $wedding->name }}</h3>
                 <p>{{ $wedding->date }} | {{ $wedding->venue }}</p>
-                <a href="{{ route('seating.reserve', $wedding->id) }}" class="text-blue-500 hover:text-blue-700">Reserve Seat</a>
+                <a href="{{ route('seating.reserve', ['weddingId' => $wedding->id]) }}" class="text-blue-500 hover:text-blue-700">Reserve Seat</a>
             </div>
         @endforeach
     </div>
