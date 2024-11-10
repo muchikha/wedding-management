@@ -1,16 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController; // Include HomeController for the homepage
+use App\Http\Controllers\WeddingController; // Include HomeController for the homepage
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\BudgetItemController;
-use App\Http\Controllers\WeddingController;
 use App\Http\Controllers\TestimonialController; // Include TestimonialController
 use App\Http\Controllers\SeatingController; // Include SeatingController for seat reservations
 
 // Route to show the homepage with upcoming weddings and reservation option
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [WeddingController::class, 'index'])->name('home');
 
 // Routes for managing guests
 Route::get('/guests/create/{eventId}', [GuestController::class, 'create']);

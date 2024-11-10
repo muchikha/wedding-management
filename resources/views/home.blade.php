@@ -17,7 +17,7 @@
     <h2 class="text-3xl font-semibold text-center mb-8">Upcoming Weddings</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         @foreach($weddings as $wedding)
-        @dd($wedding)
+        @dd($wedding->id)
             <div class="bg-white shadow-md p-6 rounded-lg">
                 <h3 class="text-xl font-bold">{{ $wedding->name }}</h3>
                 <p>{{ $wedding->date }} | {{ $wedding->venue }}</p>

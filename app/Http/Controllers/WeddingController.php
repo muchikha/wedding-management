@@ -46,9 +46,12 @@ class WeddingController extends Controller
      * Display the specified wedding.
      */
     public function show(Wedding $wedding)
-    {
-        return view('weddings.show', compact('wedding'));
+{
+    if (!$wedding->id) {
+        abort(404, 'Wedding not found');
     }
+    return redirect()->route('seating.reserve', ['weddingId' => $wedding->id]);
+}
 
     /**
      * Show the form for editing the specified wedding.

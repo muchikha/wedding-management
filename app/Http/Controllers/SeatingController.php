@@ -33,7 +33,8 @@ class SeatingController extends Controller
         //     'message' => $request->message,
         // ]);
 
-        // Redirect to homepage or other view with a success message
-        return redirect()->route('home')->with('success', 'Your seat has been reserved!');
+        // Redirect back to the seating reservation form for this wedding with a success message
+        return redirect()->route('seating.reserve', ['weddingId' => $weddingId])
+                         ->with('success', 'Your seat has been reserved!');
     }
 }
